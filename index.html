@@ -3,43 +3,68 @@
 <head>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- <link rel="stylesheet" href="style.css" type="text/css"></link> -->
 	<script src='https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.js'></script>
 	<link href='https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.css' rel='stylesheet'/>
-	<script src="https://unpkg.com/deck.gl@latest/dist.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-	integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
-	crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="style.css"></link>
+	<script src="https://unpkg.com/deck.gl@^8.1.0/dist.min.js"></script>
 
 </head>
 <body>
+	<style>
+	.wrapper {
+		max-width: 900px;
+		padding: 20px;
+	}
+	h1 {
+		text-align: center;
+		font-weight: bolder;
+	}
+	.overlay {
+		position: relative;
+		top: 40px;
+		background: green;
+		border: 2px solid black;
+	}
 
 
-<nav id = 'menu'></nav>
-<div id ='map' ></div>
+
+	</style>
+
+<div class='wrapper'>
+	<h1>Bachelors as highest educaton</h1>
+	<div id ='map' style='height: 70vh;width:50vw; margin:auto;'>
+			<div id ='rightbox'></div>
+	</div>
+</div>
+
+
+
+
+
 <script>
 mapboxgl.accessToken = 'pk.eyJ1IjoiaC13YXJyZW4iLCJhIjoiY2tnemJmaG54MDQzNjJ3cnN2Mmg1MmF2cyJ9.AMeyJ2g8BQiBQ2ZyH9OyJw';
 var map = new mapboxgl.Map({
 container: 'map',
-style: 'mapbox://styles/h-warren/ckii8eyeg7aou19o5nutj992a?optimize=true', // style made in Studio 
+style: 'mapbox://styles/h-warren/ckii8eyeg7aou19o5nutj992a?optimize=true', // style made in Studio
 center: [-122.429, 47.218], // starting position [lng, lat]
-zoom: 8 // starting zoom
+zoom: 9 // starting zoom
 });
 
 
 map.on('load', function(){
 // 	map style with the TotBach layer showing in Studio
-	map.addSource('bachelors', {
-		'type':'vector',
-		'url': 'mapbox://styles/h-warren/ckii8eyeg7aou19o5nutj992a'
-	});
+	// map.addSource('bachelors', {
+	// 	'type':'vector',
+	// 	'url': 'mapbox://h-warren.9vwxtzld'
+	// 	// 'data':	'HighestEd.json'
+	// });
 // 	style settings for the TotBach layer
-	map.addLayer({
+	map.getLayer({
 		'id':'TotBach',
 		'type':'fill',
 		'source':'bachelors',
 // 			tile ID from data in layer
-		'source-layer':'h-warren.9vwxtzld',
+		'source-layer': 'HighestEd-1dw16x',
 		'layout': {
 			'visibility':'visible'
 		},
@@ -66,72 +91,74 @@ map.on('load', function(){
 			'fill-opacity': 0.8
 		}
 		});
-// 	map made in Studio with the TotGradPro layer
-	map.addSource('graduate', {
-		'type': 'vector',
-		'url': 'mapbox://styles/h-warren/cki8a3ajg2thf19s0ud39an12'
-		});
-	map.addLayer({
-		'id': 'TotGradPro',
-		'type': 'fill',
-		'source': 'graduate',
-		'source-layer': 'h-warren.9vwxtzld',
-		'layout': {
-			'visibility': 'visible'
-		},
-		'paint': {
-			'fill-color': [
-				'step',
-				['get','TotGrad'],
 
-				'#f4ebe6',
-				0,
-				'#e6b3b3',
-				3.2,
-				'#d27979',
-				5.2,
-				'#bf4040',
-				7.7,
-				'#732626',
-				12.2,
-				'#391313',
-				26.8,
-				'black'
-			],
-		'fill-opacity': 0.8
-	       }
-	});
+
+// 	map made in Studio with the TotGradPro layer
+	// map.addSource('graduate', {
+	// 	'type': 'vector',
+	// 	'url': 'mapbox://styles/h-warren/cki8a3ajg2thf19s0ud39an12'
+	// 	});
+	// map.addLayer({
+	// 	'id': 'TotGradPro',
+	// 	'type': 'fill',
+	// 	'source': 'graduate',
+	// 	'source-layer': 'h-warren.9vwxtzld',
+	// 	'layout': {
+	// 		'visibility': 'visible'
+	// 	},
+	// 	'paint': {
+	// 		'fill-color': [
+	// 			'step',
+	// 			['get','TotGrad'],
+	//
+	// 			'#f4ebe6',
+	// 			0,
+	// 			'#e6b3b3',
+	// 			3.2,
+	// 			'#d27979',
+	// 			5.2,
+	// 			'#bf4040',
+	// 			7.7,
+	// 			'#732626',
+	// 			12.2,
+	// 			'#391313',
+	// 			26.8,
+	// 			'black'
+	// 		],
+	// 	'fill-opacity': 0.8
+	//        }
+	// });
 });
 
-	var toggleableLayerIds = ['bachelors', 'graduate'];
-
-	for (var i = 0; i < toggleableLayerIds.length; i++) {
-			var id = toggleableLayerIds[i];
-
-			var link = document.createElement('a');
-			link.href = '#';
-			link.className = 'active';
-			link.textContent = id;
-
-			link.onclickedLayer = function (e) {
-				var clickedLayer = this.textContent;
-				e.preventDefault();
-				e.stopPropagation();
-
-				var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
-
-				if (visibility === 'visible') {
-					map.setLayoutProperty(clickedLayer, 'visibility', none);
-					this.className = '';
-				} else {
-					this.className = 'active';
-					map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
-				}
-		};
-
-			var layers = document.getElementById('menu');
-			layers.appendChild(link);
-	}
+	// var toggleableLayerIds = ['bachelors', 'graduate'];
+	//
+	// for (var i = 0; i < toggleableLayerIds.length; i++) {
+	// 		var id = toggleableLayerIds[i];
+	//
+	// 		var link = document.createElement('a');
+	// 		link.href = '#';
+	// 		link.className = 'active';
+	// 		link.textContent = id;
+	//
+	// 		link.onclickedLayer = function (e) {
+	// 			var clickedLayer = this.textContent;
+	// 			e.preventDefault();
+	// 			e.stopPropagation();
+	//
+	// 			var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
+	//
+	// 			if (visibility === 'visible') {
+	// 				map.setLayoutProperty(clickedLayer, 'visibility', none);
+	// 				this.className = '';
+	// 			} else {
+	// 				this.className = 'active';
+	// 				map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
+	// 			}
+	// 	};
+	//
+	// 		var layers = document.getElementById('menu');
+	// 		layers.appendChild(link);
+	// }
 
 
 
