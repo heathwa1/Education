@@ -3,7 +3,7 @@
 <head>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- <link rel="stylesheet" href="style.css" type="text/css"></link> -->
+	<link rel="stylesheet" href="style.css" type="text/css"></link>
 	<script src='https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.js'></script>
 	<link href='https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.css' rel='stylesheet'/>
 <style>
@@ -13,16 +13,67 @@
 </head>
 <body>
 	<style>
-			body {
+			/* body {
+				background-color: 	#EEE8AA;
 				/* margin: 0; padding: 0; */
 			}
-			#map {
-
-				top:100px;
-				margin: 20px;
-				width:50%;
+			header {
+					background-color: grey;
+					border: 1px solid black;
+					height: 150px;
 			}
-			.wrapper {
+			h1 {
+				font-size: 2em;
+				font-weight: bolder;
+				padding: 20px;
+				text-align: center;
+			}
+			#map {
+			position:relative;
+				margin: auto;
+				width: 600px;
+				height: 550px;
+				border:2px solid black;
+			}
+			.img {
+
+				width: 75%;
+				margin:auto;
+				padding: 20px;
+			}
+			#degree{
+				position:relative;
+				margin:auto;
+				width: 600px;
+				height:500px;
+				padding: 30px;
+				border:2px solid black;
+			}
+			.main-container {
+          display: flex;
+          height: 400px;
+          flex-wrap: wrap;
+          align-content: space-between;
+
+      } */
+			/* .main-container div {
+         background-color: #f4f4f4;
+         width: 100px;
+         margin: 10px;
+         text-align: center;
+         font-size: 50px;
+     } */
+			/* .container{
+		    display:grid;
+		    grid-template-columns: auto auto auto;
+		    grid-template-rows: auto;
+				grid-gap: 15px;
+			} */
+			/* .container > div {
+				padding: 20px 0;
+				text-align: center;
+			} */
+			/* .wrapper {
 				max-width: 900px;
 				margin-left: auto;
 				margin-right: auto;
@@ -30,19 +81,32 @@
 				padding-right: 20px;
 			}
 			#highEd {
-				top: 500px;
+				line-height: 1.75;
+				padding: 40px;
 				margin: auto;
 				text-align: center;
-				font-size: 16px;
-				width: 500px;
+				font-size: 20px;
+				width: 75%;
 
+			}
+			h3 {
+				font-size: 16;
+				text-align: center;
+				color: blue;
+				font-stretch: semi-expanded;
+			}
+			h5 {
+				text-align: center;
+				padding:0;
+				margin:0;
+				color:red;
 			}
 			#menu {
 				background: #fff;
 				position: absolute;
 				z-index: 1;
-				top: 250px;
-				right: 500px;
+				top: 0;
+				right: 0;
 				border-radius: 3px;
 				width: 150px;
 				border: 1px solid rgba(0, 0, 0, 0.4);
@@ -73,30 +137,47 @@
 			}
 			#menu a.active:hover {
 				background: '#3074a4';
-			}
+			} */
 
 	</style>
 	<!-- <div class = wrapper></div> -->
-	<section class= 'wrapper'>
-		<div class = 'inner'>
-			<h1>Highest Level of Education in Pierce County Tracts</h1>
-			<nav id = 'menu'></nav>
 
-			<div id = 'map'></div>
-			<section>
-				<p id='highEd'>During the pandemic students across the country have had to adjust to a new way of learning. The online platform for entertainment is popular, but the as an education platform it is lacking in performance. I am one of those students struggling with the lack of connection to classmates and professors as I try to navigate the school year in a seemingly lone manner.</p>
+<header >
+		<h1>Highest Level of Education in Pierce County Tracts</h1>
+</header></div>
 
-			</p>
+	<div>
+				<p id='highEd'>During the pandemic students across the country have had to adjust to a new way of learning. The online platform for entertainment is popular, but the as an education platform it is lacking in performance. I am one of those students struggling with the lack of connection to classmates and professors as I try to navigate the school year in a seemingly lone manner. This data was meant to keep me motivated to move on.</p></div>
+				<h3>Dot Density of Degrees</h3>
+		<div id = 'map'>
+			<nav id = 'menu' ></nav>
+		</div>
+		<h5>Click on the menu to add/remove layers to see concentration of education levels</h5>
+		<p id='highEd'>Each dot represents 10 people within the census tract representing the highest level completed in school. Interestingly, I am in an area of Tacoma that has a higher concentration of degrees beyond Bachelors level. Now to be fair, no other demographics were taken into account for where the people with certain educational attainments lived. It was just to get a snap shot of what was surrounding me. Looking deeper into the level of education and income levels, race, age, and gender would probably tell the story of why, but this was my motivation for pushing on.
 
-</section>
+ <img src ="chrtPic.png" style='height:450px;width:550px; padding:20px;'>
+
+		<p id ='highEd'> This pie chart shows that in Pierce County, half of the population has their high school diploma and at least some college. I know the struggle. It took 10 years to get my associates degree so I fell into the 'some college' category for a while. I decided that I wanted to finish something and went on to complete my bachelors degree. It looks like a fair number of the people in the County have their Bachelors degrees as well-almost a quarter. It seems that more and more people are going further with education and I am now part of that statistic.<p>
+			<br>
+		<p id = 'highEd'>I was curious as to what types of degrees people were getting and it turns out that the census has data for that. The have degrees by types. This is what I looked into next to see how those were across the county.<p>
+			<h3>Most Popular Types of Degrees by Census Tract</h3>
+			<div id ='degree'></div>
+			<p id ='highEd'> While I wish I had a legend for this wonderful map, I just plain ran out of time. This will be worked on over the holiday break.
+				<br>
+			<p id='highEd'>I have struggled this quarter with learning new skills in technology, but I have learned a lot. I know this presentation is very ameture and is a work in progress. The data on educational attainment and types of degrees in the County was a way for me to visualize the fact that not everyone continue to these advaned degrees (the same amount don't graduate high school as the ones who get Graduate or Professional levels) because they are hard.
 
 
+			</div>
+		</section></div>
+	</div>
+
+	<!-- </div>
 
 
+	</div> -->
 
 
-
-
+<!-- <div id ='degree' style='width:500px; height:500px;'></div> -->
 
 
 
@@ -109,15 +190,21 @@ style: 'mapbox://styles/mapbox/light-v10',
 center: [-122.429, 47.218], // starting position [lng, lat]
 zoom: 10 // starting zoom
 });
-
+var popup = new mapboxgl.Popup({offset:20}).setText('This is me and where I live in relation to highest level of education in Pierce County');
+var el = document.createElement('div');
+el.id = 'marker';
+new mapboxgl.Marker(el)
+.setLngLat([-122.494, 47.265,])
+.setPopup(popup)
+.addTo(map);
 
 map.on('load', function(){
+
 	// map style with the TotBach layer showing in Studio
 	map.addSource('bachelors', {
 			'type':'vector',
 			'url':'mapbox://h-warren.5mbwlqr0'
 
-		// 'data':	'HighestEd.json'
 	});
 	// style settings for the TotBach layer
 	map.addLayer({
@@ -129,15 +216,16 @@ map.on('load', function(){
 				'visibility':'visible'
 			},
 			'paint': {
-				'circle-color': 'purple',
+				'circle-color': '#66c2a5',
 				'circle-radius': {
-					'base': 1.5,
-					'stops': [[9,1],[11,.5]]
+					// 'base': 1.5,
+					'stops': [[5,.5],[9,1],[14,3]]
 				},
-				'circle-opacity': 0.5
+				'circle-opacity': 0.7
 			},
+
 			'filter': ['==', '$type', 'Point']
-			});
+		});
 	map.addSource('associates', {
 		'type': 'vector',
 		'url':'mapbox://h-warren.6sopx1n7'
@@ -151,13 +239,14 @@ map.on('load', function(){
 				'visibility': 'visible',
 			},
 			'paint': {
-				'circle-color': 'orange',
+				'circle-color': '#fc8d62',
 				'circle-radius': {
-					'base':2,
-					'stops': [[5, 1.5],[12,3]]
+					// 'base':2,
+					'stops': [[5, .5],[9,1],[14,3]]
 				},
-				'circle-opacity': 0.5
+				'circle-opacity': 0.7
 			},
+
 			'filter': ['==', '$type', 'Point']
 	});
 
@@ -174,13 +263,14 @@ map.on('load', function(){
 				'visibility':'visible'
 			},
 			'paint': {
-				'circle-color': 'green',
+				'circle-color': '#e78ac3',
 				'circle-radius': {
-					'base': 2,
-					'stops': [[5,1.5],[12,3]]
+					// 'base': 2,
+					'stops': [[5,.5],[9,1],[14,3]]
 				},
-				'circle-opacity': 0.5
+				'circle-opacity': 0.7
 			},
+
 			'filter': ['==', '$type', 'Point']
 	});
 	map.addSource('highschool', {
@@ -193,16 +283,16 @@ map.on('load', function(){
 			'source': 'highschool',
 			'source-layer': 'hsPts_prj-0nnxnm',
 			'paint': {
-				'circle-color': 'gray',
+				'circle-color': '#8da0cb',
 				'circle-radius': {
-					'base': 2,
-					'stops': [[5,1.5], [12,3]]
+					// 'base': 2,
+					'stops': [[5,.5],[9,1], [14,3]]
 				},
-				'circle-opacity': 0.5
+				'circle-opacity': 0.7
 			},
 			'filter': ['==', '$type', 'Point'],
 
-	}, 'waterway-label');
+	});
 
 	// enumerate ids of the layers
 
@@ -242,6 +332,27 @@ map.on('load', function(){
 
 		}
 	});
+	var degree = new mapboxgl.Map({
+	container: 'degree',
+	style: 'mapbox://styles/h-warren/ckihwfcll0xzn19mivso4om5n',
+	// 'mapbox://styles/h-warren/ckii8eyeg7aou19o5nutj992a?optimize=true', // style made in Studio
+	center: [-122.429, 47.218], // starting position [lng, lat]
+	zoom: 10 // starting zoom
+	});
+	map.addLayer({
+		'id': 'topDegree',
+		'type':'fill',
+		'source': 'degreeType',
+		'source-layer':'mapbox://h-warren.a70e1dcb'
+		// 'paint': {
+		// 		'fill-color': [
+		// 			'case',
+		// 			['get', 'degreeName'],
+		//
+		// 		]
+		// }
+	});
+
 
 
 </script>
