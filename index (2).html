@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chart JS examples</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1>World population over time</h1>
+      <h2>Number of people (in millions) living on earth, the last 500 years</h2>
+      <canvas id="myPieChart" width="1600" height="900"></canvas>
+    </div>
+
+    <script>
+    //JavaScript goes here
+    var myPieChart = new Chart(ctx, {
+        type: 'pie',
+        datasets: [
+          {
+            data: 189469,
+            label: 'High school',
+            backgroundColor: "#3e95cd"
+          },
+          {
+            data: 72232,
+            label: 'Associates',
+            backgroundColor: '#8e5ea2'
+          },
+          {
+            data: 106505,
+            label: 'Bachelors',
+            backgroundColor:'#c45850'
+          },
+          {
+            data: 52398,
+            label: 'Graduate/Professional',
+            backgroundColor: '#ff8c00'
+          }
+      ],
+
+    });
+    </script>
+  </body>
+  <!-- Thanks to Tobias Ahlin, whose chart.js tutorial forms the basis of the line graph portion of this exercise -->
+</html>
