@@ -160,8 +160,8 @@
 		<p id ='highEd'> This pie chart shows that in Pierce County, half of the population has their high school diploma and at least some college. I know the struggle. It took 10 years to get my associates degree so I fell into the 'some college' category for a while. I decided that I wanted to finish something and went on to complete my bachelors degree. It looks like a fair number of the people in the County have their Bachelors degrees as well-almost a quarter. It seems that more and more people are going further with education and I am now part of that statistic.<p>
 			<br>
 		<p id = 'highEd'>I was curious as to what types of degrees people were getting and it turns out that the census has data for that. The have degrees by types. This is what I looked into next to see how those were across the county.<p>
-			<h3>Most Popular Types of Degrees by Census Tract</h3>
-			<div id ='degree'></div>
+
+
 			<p id ='highEd'> While I wish I had a legend for this wonderful map, I just plain ran out of time. This will be worked on over the holiday break.
 				<br>
 			<p id='highEd'>I have struggled this quarter with learning new skills in technology, but I have learned a lot. I know this presentation is very ameture and is a work in progress. The data on educational attainment and types of degrees in the County was a way for me to visualize the fact that not everyone continue to these advaned degrees (the same amount don't graduate high school as the ones who get Graduate or Professional levels) because they are hard.
@@ -171,10 +171,23 @@
 		</section></div>
 	</div>
 
-	<!-- </div>
+	<h3>Most Popular Types of Degrees by Census Tract</h3>
+	<div id ='degree'></div>
+	<div id ="degree-legend" class="legend">
+		<h4>Popular Degree Type</h4>
 
 
-	</div> -->
+<div><span style="background-color: #8dd3c7"></span>Psychology & Social Sciences</div>
+<div><span style ="background-color:#ffffb3"></span>Computers,Math & Engineering<div>
+<div><span style ="background-color:#bebada"></span>Biological, Environmental & Physical Sciences</div>
+<div><span style ="background-color:#fdb462"></span>Multidisciplinary Studies</div>
+<div><span style ="background-color:#fb8072"></span>Business</div>
+<div><span style ="background-color:#e2d955"></span>Education</div>
+<div><span style ="background-color:#fccde5"></span>Liturature & Language</div>
+<div><span style ="background-color:#8952ef"></span>Liberal Arts & History</div>
+<div><span style ="background-color:#bc80bd"></span>Visual & Performing Arts</div>
+<div><span style ="background-color:#80b1d3"></span>Communications</div>
+<div><span style ="background-color:#ccebc5"></span>Other</div>
 
 
 <!-- <div id ='degree' style='width:500px; height:500px;'></div> -->
@@ -353,13 +366,10 @@ map.on('load', function(){
 		// }
 	});
 
+	var degreeLegendEl = document.getElementById("degree-legend").addTo(degree);
 
 
-</script>
-
-
-
-
+	</script>
 
 
   </body>
