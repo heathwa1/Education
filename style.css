@@ -99,7 +99,7 @@ h5 {
   color: '#404040';
 }
 #menu a.active{
-  background-color: '#3887be';
+  background-color: lightblue;
   color: '#ffffff';
 }
 #menu a.active:hover {
@@ -114,7 +114,7 @@ h5 {
 }
 .map-overlay {
     font: bold 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-    position: absolute;
+    position: relative;
     width: 25%;
     top: 0;
     left: 0;
@@ -149,7 +149,8 @@ h5 {
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
     padding: 10px;
-    position: absolute;
+    float:inline-end;
+    position:inherit;
     right: 10px;
     z-index: 1;
 }
